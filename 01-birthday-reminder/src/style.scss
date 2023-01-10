@@ -1,0 +1,169 @@
+* {
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:focus,
+:active {
+  /*outline: none;*/
+}
+
+a:focus,
+a:active {
+  /* outline: none;*/
+}
+
+/* Links */
+
+a, a:link, a:visited  {
+  /* color: inherit; */
+  text-decoration: none;
+  /* display: inline-block; */
+}
+
+a:hover  {
+  /* color: inherit; */
+  text-decoration: none;
+}
+
+/* Common */
+
+aside, nav, footer, header, section, main {
+  display: block;
+}
+
+//h1, h2, h3, h4, h5, h6, p {
+//  font-size: inherit;
+//  font-weight: inherit;
+//}
+
+ul, ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+img, svg {
+  max-width: 100%;
+  height: auto;
+}
+
+address {
+  font-style: normal;
+}
+
+/* Form */
+
+input, textarea, button, select {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  background-color: transparent;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button, input[type="submit"] {
+  display: inline-block;
+  box-shadow: none;
+  background: transparent none;
+  cursor: pointer;
+}
+
+input:focus, input:active,
+button:focus, button:active {
+  outline: none;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+label {
+  cursor: pointer;
+}
+
+legend {
+  display: block;
+}
+
+// main styles
+
+$clr-pink: #f28ab2;
+$clr-white: white;
+@mixin componentable() {
+  padding: 15px 30px 15px 35px;
+}
+@mixin personDataComp() {
+  padding: 10px;
+}
+main {
+  background: $clr-pink;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  section {
+    min-width: 450px;
+    margin: 0 auto;
+    background: $clr-white;
+    border-radius: 5px;
+    box-shadow: 0 0 10px 0 rgba(34, 60, 80, 0.2);
+    display: flex;
+    flex-direction: column;
+
+    button {
+      margin: 20px auto;
+      width: 100% - 20%;
+      height: 50px;
+      background: $clr-pink;
+      border-radius: 5px;
+      color: $clr-white;
+    }
+  }
+}
+
+.person {
+  width: 100%;
+  @include componentable;
+  img {
+    width: 75px;
+    height: 75px;
+    object-fit: cover;
+    border-radius: 50%;
+    float: left;
+  }
+
+  div {
+    padding-left: 15px;
+    float: left;
+    display: flex;
+    flex-direction: column;
+    h4 {
+      text-align: center;
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+    p {
+      text-align: start;
+    }
+  }
+}
+
+.birthdays-counter {
+ @include componentable;
+}
