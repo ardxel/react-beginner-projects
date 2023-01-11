@@ -1,0 +1,254 @@
+.review {
+  width: 100%;
+  margin-top: 50px;
+  padding: 1.5rem 2rem;
+}
+
+@media screen and (max-width: 800px) {
+  .review {
+    padding: 1rem 1.5rem;
+    margin-top: 35px;
+  }
+}
+.img_container {
+  display: block;
+  position: relative;
+  margin: 0 auto;
+  width: 150px;
+  height: 150px;
+}
+.img_container::before {
+  content: "";
+  background: hsl(205deg, 78%, 60%);
+  position: absolute;
+  top: -5px;
+  left: 10px;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.img_container .review_img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  position: relative;
+}
+.img_container .review_notation {
+  color: white;
+  background: hsl(205deg, 78%, 60%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: grid;
+  place-items: center;
+  transform: translateY(25%);
+}
+
+.review_name {
+  margin-top: 20px;
+  font-size: 0.925em;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.review_job {
+  margin-top: 5px;
+  font-size: 0.875em;
+  color: hsl(205deg, 78%, 60%);
+  font-weight: 400;
+}
+
+.review_text {
+  margin-top: 20px;
+  font-size: 0.9em;
+  letter-spacing: 0.25px;
+  text-align: center;
+  color: hsl(210deg, 22%, 49%);
+}
+
+@media screen and (max-width: 410px) {
+  .review_text {
+    font-size: 0.8em;
+    letter-spacing: 0.5px;
+  }
+}
+@media screen and (max-width: 332px) {
+  .review_name {
+    margin-top: 10px;
+  }
+  .review_job {
+    font-size: 0.8em;
+  }
+  .review_text {
+    margin-top: 10px;
+  }
+}
+* {
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:focus,
+:active {
+  /*outline: none;*/
+}
+
+a:focus,
+a:active {
+  /* outline: none;*/
+}
+
+/* Links */
+a, a:link, a:visited {
+  /* color: inherit; */
+  text-decoration: none;
+  /* display: inline-block; */
+}
+
+a:hover {
+  /* color: inherit; */
+  text-decoration: none;
+}
+
+/* Common */
+aside, nav, footer, header, section, main {
+  display: block;
+}
+
+ul, ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+img, svg {
+  max-width: 100%;
+  height: auto;
+}
+
+address {
+  font-style: normal;
+}
+
+/* Form */
+input, textarea, button, select {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  background-color: transparent;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button, input[type=submit] {
+  display: inline-block;
+  box-shadow: none;
+  background: transparent none;
+  cursor: pointer;
+}
+
+input:focus, input:active,
+button:focus, button:active {
+  outline: none;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+label {
+  cursor: pointer;
+}
+
+legend {
+  display: block;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background: hsl(210deg, 36%, 96%);
+}
+
+main {
+  width: 100vw;
+}
+
+.reviews_container {
+  margin: 0 auto;
+  width: 600px;
+  height: 450px;
+  text-align: center;
+  background: white;
+}
+
+.title {
+  margin-top: 6em;
+}
+
+.title_text {
+  text-align: center;
+}
+
+@media screen and (max-width: 800px) {
+  .reviews_container {
+    width: 75vw;
+    height: 425px;
+  }
+  .title {
+    margin-top: 4em;
+  }
+}
+@media screen and (max-width: 554px) {
+  .reviews_container {
+    height: 450px;
+  }
+  .title {
+    margin-top: 3em;
+  }
+}
+.title_underline {
+  border: 2px solid hsl(205deg, 78%, 60%);
+  width: 6em;
+  margin: 10px auto 0;
+}
+
+.review_btn_prev,
+.review_btn_next {
+  margin: 0 0.8em;
+  transition: all 3s linear;
+}
+
+.review_btn_prev:hover,
+.review_btn_next:hover {
+  color: hsl(210deg, 22%, 49%);
+}
+
+.review_btn_random {
+  margin-top: 10px;
+  padding: 0.25em 1.25em;
+  border-radius: 5px;
+  font-size: 0.9em;
+  text-align: center;
+  text-transform: capitalize;
+  color: hsl(205deg, 78%, 60%);
+  background: hsl(205deg, 100%, 96%);
+  transition: all 3s linear;
+}
+
+/*# sourceMappingURL=index.css.map */
