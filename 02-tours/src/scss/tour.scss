@@ -1,0 +1,107 @@
+$lt-spacingL: 0.25px;
+$lt-spacingS: 0.5px;
+$lt-spacingB: 0.8px;
+$lt-spacingE: 1.2px;
+
+$blue-colorN: hsl(205, 78%, 60%);
+$blue-colorS: hsl(205, 100%, 96%);
+
+$grey-colorS: hsl(210, 22%, 49%);
+
+$red-dark-colorN: hsl(360, 67%, 44%);
+
+@mixin stylePrice() {
+  letter-spacing: $lt-spacingB;
+  background: $blue-colorS;
+  color: $blue-colorN;
+  padding: 5px;
+  border-radius: 5px;
+}
+@mixin styleText() {
+  font-size: 0.95em;
+  padding-top: 20px;
+  letter-spacing: $lt-spacingL;
+  color: $grey-colorS;
+}
+
+@mixin styleButDelete() {
+  display: block;
+  margin: 20px auto 0;
+  border-radius: 5px;
+  font-size: 1.1em;
+  padding: 0 50px 4px 50px;
+  vertical-align: center;
+  text-align: center;
+  letter-spacing: $lt-spacingB;
+  border: 1px solid $red-dark-colorN;
+  color: $red-dark-colorN;
+}
+.tour {
+  margin-bottom: 35px;
+}
+
+.tour_info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.tour_container {
+  padding: 25px;
+  background: white;
+  border-radius: 5px;
+}
+.tour_name {
+  letter-spacing: $lt-spacingE;
+  font-size: 0.9em;
+}
+
+.tour_price {
+ @include stylePrice;
+}
+
+.tour_image {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.tour_showText{
+  font-size: 1.1rem;
+  color: $blue-colorN;
+  padding-left: 5px;
+}
+
+.tour_text {
+ @include styleText;
+}
+
+.tour_delete {
+ @include styleButDelete;
+}
+
+@media screen and (max-width: 420px) {
+  .tour_container {
+    padding: 15px;
+  }
+  .tour_name {
+    letter-spacing: 0;
+  }
+  .tour_price {
+    font-size: 0.9em;
+  }
+  .tour_text {
+    font-size: 0.8em;
+  }
+  .tour_showText {
+    font-size: 1em;
+    padding-left: 2.5px;
+  }
+  .tour_delete {
+    font-size: 1em;
+    padding-bottom: 0;
+    padding-left: 25px;
+    padding-right: 25px;
+    margin: 15px auto;
+  }
+}
