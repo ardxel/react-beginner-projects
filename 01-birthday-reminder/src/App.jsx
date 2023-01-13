@@ -7,7 +7,7 @@ function App() {
     return (
         <main>
             <section>
-                <h2 class='birthdays-counter'>{people.length} birthdays today</h2>
+                <h2 className='birthdays-counter'>{people.length} birthdays today</h2>
                 <List people={people}/>
                 <button onClick={() => setPeople([])}>Clear All</button>
             </section>
