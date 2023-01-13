@@ -8,7 +8,7 @@ function List({people}) {
 
                 return (
                     <article key={id} className='person'>
-                        <img src={image}/>
+                        <img alt='' src={image}/>
                         <div>
                             <h4>{name}</h4>
                             <p>{age} years</p>
