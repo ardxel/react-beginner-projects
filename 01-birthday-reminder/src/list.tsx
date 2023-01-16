@@ -1,9 +1,10 @@
 import React from "react";
+import {Item, TProps} from "./models/types";
 
-function List({people}) {
+function List ({people}: TProps) {
     return(
         <>
-            {people.map(person => {
+            {people.map((person: Item) => {
                 const {id, name, age, image} = person;
 
                 return (
