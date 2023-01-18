@@ -1,37 +1,33 @@
-import _ from 'lodash';
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
+import _ from 'lodash'
 import data from "./data";
-import Reviews from './reviews';
+import Reviews from './Reviews';
 import './scss/index.scss';
-// const genDataElems = (data) => {
-//     return data.map(person => {
-//         return person;
-//     })
-// }
+import {TypeDataReviews} from "./models";
 
 function App() {
-    const [reviews, setReviews] = useState(data);
-    const [onScreen, setOnScreen] = useState(reviews[0]);
+    const [reviews, setReviews] = useState<TypeDataReviews[]>(data);
+    const [onScreen, setOnScreen] = useState<TypeDataReviews>(reviews[0]);
 
     if (!data) {
         setReviews([]);
     }
 
-    const showNext = () => {
+    const showNext = (): void => {
         if (reviews.indexOf(onScreen) === reviews.length-1) {
             setOnScreen(reviews[0]);
         } else {
             setOnScreen(reviews[reviews.indexOf(onScreen) + 1]);
         }
     }
-    const showPrev = () => {
+    const showPrev = (): void => {
         if (reviews.indexOf(onScreen) === 0) {
             setOnScreen(reviews[reviews.length-1])
         } else {
             setOnScreen(reviews[reviews.indexOf(onScreen)-1])
         }
     }
-    const showRandom = () => {
+    const showRandom = (): void => {
         const index = _.random(0,3);
         if (index === reviews.indexOf(onScreen)) {
             return showRandom();

@@ -1,6 +1,7 @@
 import React from "react";
+import {PropsReviews} from "./models";
 
-function Reviews({review}) {
+function Reviews({review}: PropsReviews) {
     return (
         <article className='review'>
             <div className='img_container'>
