@@ -1,4 +1,4 @@
-const reviews = [
+const reviews: { id: number; name: string; job: string; image: string; text: string; }[] = [
     {
         id: 1,
         name: 'susan smith',
