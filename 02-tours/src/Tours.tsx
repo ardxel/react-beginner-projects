@@ -1,7 +1,8 @@
 import React from "react";
 import Tour from "./Tour"
+import {ToursProps} from "./models";
 
-function Tours({tours, removeTour} ) {
+function Tours({tours, removeTour}: ToursProps) {
 
     return (
         <main>
@@ -13,11 +14,7 @@ function Tours({tours, removeTour} ) {
                 {tours.map(tour => {
                     return <Tour
                         key={tour.id}
-                        id={tour.id}
-                        image={tour.image}
-                        info={tour.info}
-                        name={tour.name}
-                        price={tour.price}
+                        {...tour}
                         removeTour={removeTour}/>
                 })}
             </section>

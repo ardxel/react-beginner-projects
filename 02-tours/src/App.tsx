@@ -1,18 +1,19 @@
 import React, {useEffect, useState} from "react";
 import Tours from './Tours'
 import './scss/style.scss'
+import {ITours, TypeRemoveTour, FetchTours} from "./models";
 
 const url = 'https://course-api.com/react-tours-project';
 
 function App() {
-    const [isloading, setIsLoading] = useState(true);
-    const [tours, setTours] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+    const [tours, setTours] = useState<ITours[]>([]);
 
-    const removeTour = (id) => {
+    const removeTour: TypeRemoveTour = (id) => {
         setTours(tours.filter(tour => tour.id !== id));
     }
 
-    const fetchTours = async (url) => {
+    const fetchTours: FetchTours = async (url) => {
         setIsLoading(true);
 
         const response = await fetch(url);
@@ -25,7 +26,7 @@ function App() {
         fetchTours(url);
     }, []);
 
-    if (isloading) {
+    if (isLoading) {
         return (
             <main>
                 <section className='tours'>
