@@ -22,6 +22,7 @@ export type TFnSubmit = (event: FormEvent<HTMLFormElement>) => void;
 export type TFnChange = (event: ChangeEvent<HTMLInputElement>) => void;
 export type TFnVoid = () => void;
 export type TFnVoidWithId = (id: number) => void;
+export type TFnAlert = (show: boolean, msg: string, type: string) => void
 
 export type TFormProps = {
     inputChangeValue: TFnChange,
@@ -42,5 +43,6 @@ export type TItemProps = {
     title: string,
     deleteItem: TFnVoidWithId,
     editItem: TFnVoidWithId
-
 }
+
+export type THandlers = [TFnSubmit, TFnVoid, TFnChange, TFnVoidWithId, TFnVoidWithId]
