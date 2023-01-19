@@ -1,8 +1,9 @@
 import React, {useState} from "react";
 import Article from "./Article";
+import {IListProps} from "./module";
 
-function Jobs({list}) {
-    const [indexJobOnScreen, setIndexJobOnScreen] = useState(0);
+function Jobs({list}: IListProps) {
+    const [indexJobOnScreen, setIndexJobOnScreen] = useState<number>(0);
 
     return (
         <div className='jobs-center'>
