@@ -1,7 +1,7 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import Question from "./question";
 import './scss/index.scss'
-import questions from "./data.js";
+import questions from "./data";
 
 function App() {
 
