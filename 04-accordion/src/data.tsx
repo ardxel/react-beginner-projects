@@ -1,4 +1,5 @@
-const questions = [
+import {questionsType} from "./models";
+const questions: questionsType[] = [
     {
         id: 1,
         title: 'Do I have to allow the use of cookies?',

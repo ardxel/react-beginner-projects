@@ -1,6 +1,7 @@
 import React, {useState} from "react";
+import {questionProps} from "./models";
 
-function Question({title, info}) {
+function Question({title, info}: questionProps) {
     const [isLocked, setIsLocked] = useState(true);
 
     return (
@@ -11,7 +12,7 @@ function Question({title, info}) {
                     <button
                         className='btn_showText'
                         onClick={() => setIsLocked(!isLocked)}>
-                        <svg stroke="currentColor" fill="currentColor" strokeWidth="0" t="1551322312294"
+                        <svg stroke="currentColor" fill="currentColor" strokeWidth="0" to="1551322312294"
                              viewBox="0 0 1024 1024" version="1.1" height="1em" width="1em"
                              xmlns="http://www.w3.org/2000/svg">
                             <defs></defs>
