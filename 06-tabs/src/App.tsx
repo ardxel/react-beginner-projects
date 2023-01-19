@@ -1,22 +1,24 @@
 import React, {useState, useEffect} from 'react'
+import axios from "axios";
 import Jobs from './Jobs'
 import Title from "./Title";
+import {TList} from "./module";
+
 const url = 'https://course-api.com/react-tabs-project';
 
 function App() {
-    const [list, setList] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
+    const [list, setList] = useState<TList[]>([]);
+    const [isLoading, setIsLoading] = useState<boolean>(true);
 
-    const fetchAPI = async (link) => {
-        // try {
+    const fetchAPI = async (link: string) => {
+        try {
             setIsLoading(true);
-            const response = await fetch(link);
-            const data = await response.json();
-            setList(data);
+            const response = await axios.get<TList[]>(link);
+            setList(response.data);
             setIsLoading(false);
-        // } catch (e) {
-        //     console.log(e);
-        // }
+        } catch (e) {
+            console.log(e);
+        }
     }
 
     useEffect(() => {

@@ -1,7 +1,8 @@
 import React from "react";
 import { FaAngleDoubleRight } from 'react-icons/fa'
+import {IArticleProps} from "./module";
 
-function Article({jobInfo}) {
+function Article({jobInfo}: IArticleProps) {
     return (
         <article className='job-info'>
             <h3>{jobInfo.title}</h3>
