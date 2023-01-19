@@ -1,10 +1,11 @@
 import React from "react";
 import { FiChevronRight, FiChevronLeft } from 'react-icons/fi';
 import { FaQuoteRight } from 'react-icons/fa';
+import {IActionProps, TFnSlides} from "./modules";
 
-const Action = ({reviews, activeIndex, btnPrev, btnNext}) => {
+const Action = ({reviews, activeIndex, btnPrev, btnNext}: IActionProps) => {
 
-    const handleChangeClass = (index) => {
+    const handleChangeClass: TFnSlides = (index) => {
         const firstIndex = 0;
         const lastIndex = reviews.length-1;
 
@@ -16,6 +17,8 @@ const Action = ({reviews, activeIndex, btnPrev, btnNext}) => {
         }
         if (activeIndex - index >= 2 || (activeIndex <= 2 && index >= activeIndex)) {
             return 'nextSlide';
+        } else {
+            throw Error();
         }
     }
 

@@ -1,4 +1,6 @@
-const people = [
+import {TPeople} from "./modules";
+
+const people: TPeople[] = [
   {
     id: 1,
     image:
