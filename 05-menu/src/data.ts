@@ -1,4 +1,6 @@
-const menu = [
+import {TMenu} from "./models";
+
+const data_menu: TMenu[] = [
     {
         id: 1,
         title: 'buttermilk pancakes',
@@ -72,4 +74,4 @@ const menu = [
         desc: `skateboard fam synth authentic semiotics. Live-edge lyft af, edison bulb yuccie crucifix microdosing.`,
     },
 ];
-export default menu;
+export default data_menu;
