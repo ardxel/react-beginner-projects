@@ -1,11 +1,12 @@
 import React from "react";
+import {IMenuProps} from "./models";
 
-function Menu({items}) {
+function Menu({menu}: IMenuProps) {
 
     return (
         <div className='items_container'>
-            {items.map(item => {
-                const {id, title, category, price, img, desc} = item;
+            {menu.map(item => {
+                const {id, title, price, img, desc} = item;
                 return (
                     <article key={id} className='menu_item'>
                         <div className='photo_div'>
