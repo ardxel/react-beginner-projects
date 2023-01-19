@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react'
+import React from 'react'
+import {TAlert} from "./modules";
 
-const Alert = ({alert}) => {
+const Alert = ({alert}: {alert: TAlert}) => {
 
     return (
         <p className={`alert ${alert.type}`}>

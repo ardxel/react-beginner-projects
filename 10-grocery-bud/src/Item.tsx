@@ -1,7 +1,8 @@
 import React from "react";
 import { FaEdit, FaTrash } from 'react-icons/fa'
+import {TItemProps} from "./modules";
 
-const Item = ({id, title, deleteItem, editItem}) => {
+const Item = ({id, title, deleteItem, editItem}: TItemProps) => {
     return (
         <article key={id} className='grocery-item'>
             <p className='title'>{title}</p>

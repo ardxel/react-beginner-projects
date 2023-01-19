@@ -1,71 +1,73 @@
-import React, {useState, useEffect, useRef} from 'react'
+import React, {ChangeEvent, createRef, FormEvent, useEffect, useRef, useState} from 'react'
 import Form from "./Form";
 import List from './List'
-import list from "./List";
+import list from './List'
+import {TAlert, TEdit, TFnSubmit, TFnVoid, TFnVoidWithId, TList} from "./modules";
 
-function getLocaleStorage() {
-    let list = localStorage.getItem('list');
+function getLocaleStorage(): TList[] {
+    let list: TList[] = JSON.parse(localStorage.getItem('list') || '');
     if (list) {
-        return (list = JSON.parse(localStorage.getItem('list')));
-    } else {
-        return [];
-    }
+        return list;
+    } else return []
 }
 
 function App() {
-    const [inputValue, setInputValue] = useState('');
-    const [list, setList] = useState(getLocaleStorage());
-    const [alert, setAlert] = useState({show: false, msg: '', type: ''});
-    const [edit, setEdit] = useState({isEdit: false,id: 0, title: ''});
-    const inputRef = useRef(null);
+    const [inputValue, setInputValue] = useState<string>('');
+    const [list, setList] = useState<TList[]>(getLocaleStorage());
+    const [alert, setAlert] = useState<TAlert>({show: false, msg: '', type: ''});
+    const [edit, setEdit] = useState<TEdit>({isEdit: false,id: 0, title: ''});
 
-    const handleChange = (e) => {
-        setInputValue(e.target.value);
+    const handleChange = (e: ChangeEvent<HTMLInputElement>): void => {
+        setInputValue(e.currentTarget.value);
     }
 
-    const showAlert = (show = false,msg = '', type = '') => {
+    const showAlert = (show = false,msg = '', type = ''): void => {
         setAlert({show, msg, type});
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit: TFnSubmit = (e) => {
         e.preventDefault();
 
         if (inputValue === '') {
             return showAlert(true, 'Please enter value', 'alert-danger');
         }
         if (edit.isEdit) {
-            const item = list.find(item => item.id === edit.id);
-            const currentIndex = list.indexOf(item);
-            const title = inputValue;
-            
+                const item = list.find(item => item.id === edit.id);
+                if (!item) {
+                    throw Error('No item here. handleSubmit Error')
+                }
+                const currentIndex = list.indexOf(item);
+                const title = inputValue;
+
             setList(list.map((item, i) => {
                 if (i === currentIndex) {
-                    const modifyItem = {id: item.id, title: title}
-                    return modifyItem;
+                    return {id: item.id, title: title};
                 } return item;
             }));
             showAlert(true, 'Item is changes', 'alert-success');
             return;
         }
-        const result = {id: new Date().getTime().toString(), title: inputValue}
+        const result: TList = {id: +new Date().getTime().toString(), title: inputValue}
 
         setList([...list, result]);
         showAlert(true, 'Item Added To The List', 'alert-success');
     }
 
-    const handleClearList = () => {
+    const handleClearList: TFnVoid = () => {
         setList([]);
         showAlert(true, 'Empty list', 'alert-danger');
     }
 
-    const deleteItem = (id) => {
+    const deleteItem: TFnVoidWithId = (id) => {
         setList(list.filter(item => item.id !== id));
         showAlert(true, 'Item removed', 'alert-danger');
     }
 
-    const editItem = (id) => {
+    const editItem: TFnVoidWithId = (id) => {
         const item = list.find(item => item.id === id);
-        console.log(item);
+        if (item === undefined) {
+            throw Error('No item here. editItem error')
+        }
         setInputValue(item.title);
         setEdit({isEdit: true, id: id, title: item.title});
     }
@@ -86,8 +88,7 @@ function App() {
             <Form
                 currentValue={inputValue}
                 alert={alert}
-                inputRef={inputRef}
-                inputValue={handleChange}
+                inputChangeValue={handleChange}
                 submit={handleSubmit}/>
             {list.length > 0 && <List
                 list={list}

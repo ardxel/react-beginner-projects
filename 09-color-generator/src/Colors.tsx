@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import rgbToHex from './utils'
+import Values from "values.js";
 
-const Colors = ({colors}) => {
+const Colors = ({colors}: {colors: Values[]}) => {
     const [alert, setAlert] = useState(false);
     const [indexAlert, setIndexAlert] = useState(-1);
 
-    const handleCopyHex = (hex, index) => {
+    const handleCopyHex = (hex: string, index: number) => {
         setIndexAlert(index);
         setAlert(true);
         navigator.clipboard.writeText(hex);
