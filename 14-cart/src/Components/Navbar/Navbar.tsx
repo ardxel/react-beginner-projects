@@ -1,8 +1,11 @@
 import React from 'react'
 import { useGlobalContext } from '../Context/context'
-const Navbar = () => {
-  const {amount} = useGlobalContext();
+import {useSelector} from "react-redux";
+import {useAppSelector} from "../../redux/store";
 
+const Navbar = () => {
+  // const {amount} = useGlobalContext();
+    const amount = useAppSelector(state => state.list.amount)
   return (
     <nav>
       <div className='nav-center'>
