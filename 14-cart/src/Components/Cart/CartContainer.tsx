@@ -1,10 +1,16 @@
 import React from 'react'
 import CartItem from './CartItem'
-import { useGlobalContext } from '../Context/context'
+import {useGlobalContext} from '../Context/context'
+import {useSelector, useDispatch} from "react-redux";
+import {useAppSelector} from "../../redux/store";
+import {clearList} from "../../redux/mainSlice";
 
 const CartContainer = () => {
-  const { cart, total, clearCartList } = useGlobalContext()
-
+  // const { cart, total, clearCartList } = useGlobalContext()
+  // const {cart, total} = useSelector((state: RootState) => [state.list.cart, state.list.total])
+  const cart = useAppSelector((state) => state.list.cart);
+  const total = useAppSelector((state) => state.list.total);
+  const dispatch = useDispatch()
   if (cart.length === 0) {
     return (
       <section className='cart'>
@@ -38,7 +44,7 @@ const CartContainer = () => {
         </div>
         <button
           className='btn clear-btn'
-          onClick={() => clearCartList()}>
+          onClick={() => dispatch(clearList())}>
           clear cart
         </button>
       </footer>

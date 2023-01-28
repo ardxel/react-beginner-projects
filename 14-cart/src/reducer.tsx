@@ -1,17 +1,17 @@
 import React from "react";
 import {ICart, IState} from "./Components/Context/models";
 
-export default function reducer(
-    state: IState,
+export default function reducer<T extends IState, U>(
+    state: T,
     action: {type:
             'FETCH_CART' | "LOADING" | 'TOTAL' | 'CLEAR_CART' | "REMOVE_ITEM" | 'INC_ITEM' | 'DEC_ITEM',
-            payload?: ICart[] | keyof ICart}
-): IState  {
+            payload?: U[] | string}
+): T  {
         switch (action.type) {
             case "LOADING":
                 return {...state, loading: true};
             case 'FETCH_CART':
-                return {...state, cart: action.payload as ICart[], loading: false};
+                return {...state, cart: action.payload, loading: false};
             case 'TOTAL':
                 let amount: number = 0; let total: number = 0;
                 for(let i = 0; i < state.cart.length; i++) {
