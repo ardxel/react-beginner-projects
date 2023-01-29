@@ -1,12 +1,11 @@
 import React from 'react'
-import {ICart} from "../Context/models";
-import {useGlobalContext} from "../Context/context";
+import {ICart} from "../../models";
 import {removeItem, decrement, increment} from "../../redux/mainSlice";
 import {useDispatch} from "react-redux";
 
 const CartItem = ({ id, img, title, price, amount }: ICart) => {
-    // const {remove, increaseItem, decreaseItem} = useGlobalContext()
   const dispatch = useDispatch();
+
   return (
     <article className='cart-item'>
       <img src={img} alt={title} />

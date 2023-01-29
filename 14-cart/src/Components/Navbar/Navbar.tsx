@@ -1,5 +1,5 @@
 import React from 'react'
-import { useGlobalContext } from '../Context/context'
+// import { useGlobalContext } from '../Context/context'
 import {useSelector} from "react-redux";
 import {useAppSelector} from "../../redux/store";
 
