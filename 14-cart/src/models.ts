@@ -11,7 +11,8 @@ export interface IState {
     cart: ICart[],
     total: number,
     amount: number,
-    payload?: number
+    payload?: number,
+    error: string | null
 }
 
 export type ReducerDispatch = (id?: keyof ICart) => void

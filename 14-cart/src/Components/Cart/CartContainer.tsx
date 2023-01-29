@@ -1,15 +1,11 @@
 import React from 'react'
 import CartItem from './CartItem'
-import {useGlobalContext} from '../Context/context'
 import {useSelector, useDispatch} from "react-redux";
-import {useAppSelector} from "../../redux/store";
+import {useAppDispatch, useAppSelector} from "../../redux/store";
 import {clearList} from "../../redux/mainSlice";
 
 const CartContainer = () => {
-  // const { cart, total, clearCartList } = useGlobalContext()
-  // const {cart, total} = useSelector((state: RootState) => [state.list.cart, state.list.total])
-  const cart = useAppSelector((state) => state.list.cart);
-  const total = useAppSelector((state) => state.list.total);
+  const {cart, total, error, loading} = useAppSelector(state => state.list)
   const dispatch = useDispatch()
   if (cart.length === 0) {
     return (
@@ -21,6 +17,14 @@ const CartContainer = () => {
         </header>
       </section>
     )
+
+  if (error) {
+    return (
+        <section className='cart'>
+          Error: {error}
+        </section>
+    )
+  }
   }
   return (
     <section className='cart'>

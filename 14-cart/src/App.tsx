@@ -1,31 +1,20 @@
 import React, {useEffect} from 'react'
-import {useGlobalContext} from './Components/Context/context'
 
 // components
 import Navbar from './Components/Navbar/Navbar'
 import CartContainer from './Components/Cart/CartContainer'
-import {useDispatch} from "react-redux";
-import { useAppSelector} from "./redux/store";
-import {IFetchCart} from "./Components/Context/models";
-
+import {useAppDispatch, useAppSelector} from "./redux/store";
 // items
-import {fetchCart, total} from "./redux/mainSlice";
-const url = 'https://course-api.com/react-useReducer-cart-project'
+import {total, fetchCartItems} from "./redux/mainSlice";
+const url = new URL('https://course-api.com/react-useReducer-cart-project');
 
 function App() {
-  // const {loading} = useGlobalContext();
   const loading = useAppSelector((state) => state.list.loading)
   const cart = useAppSelector((state) => state.list.cart);
-  const dispatch = useDispatch();
-
-  const fetchCartItemsApi: IFetchCart = async (url) => {
-    const response = await fetch(url);
-    const data = await response.json();
-    dispatch(fetchCart(data))
-  }
+  const dispatch = useAppDispatch()
 
   useEffect(() => {
-    fetchCartItemsApi(url)
+    dispatch(fetchCartItems(url))
   }, [])
 
   useEffect(() => {
